@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>The Game Selector</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+    </head>
+    <body>
+
+        <div class="main">
+            <div class="heading">
+                <div class="heading__title">The Game Selector</div>
+                <div class="heading__subtitle">For Those Who Just Can't Make Up Their Mind</div>
+            </div>
+            <div class="input">
+                <div class="input__header">Enter the games you did not complete yet</div>
+                <input id="txtGame" type="text" class="input__textbox" />
+                <input type="button" value="Submit" class="button" />
+            </div>
+            <div class="output">
+                <div class="output__selection"></div>
+                <input type="button" value="Select Game" class="button" />
+            </div> 
+            <div class="list">
+                <input type="button" value="Show List" class="button" />
+                <div class="list__heading"></div>
+                <div class="list__contents"></div>
+            </div>
+            <div class="remove">
+                <div class="remove__heading">Select the game you want to remove from the list</div>
+                <select id="lstGames" class="remove__dropdown"></select>
+                <input type="button" value="Delete" class="button" />
+            </div>
+            <div class="save">
+                <div class="save__disclaimer">This app uses a cookie to save your list of games. Be careful clearing your cookies, or you may lose your list</div>
+            </div>
+        </div>
+
+        <script src="build/build.js"></script>
+    </body>
+</html>

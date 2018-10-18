@@ -1,0 +1,59 @@
+html {
+  height: 100%;
+  overflow-y: scroll; }
+
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: #FFFFFF;
+  background-color: #232323; }
+
+.main {
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 10px;
+  margin-left: 20px; }
+  .main .button {
+    border-radius: 10px;
+    font-size: 14px;
+    background: #1100ff;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    border: none; }
+
+.heading {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start; }
+  .heading__title {
+    font-size: 36px; }
+  .heading__subtitle {
+    font-size: 24px; }
+
+.input {
+  margin-top: 30px; }
+
+.output {
+  margin-top: 25px; }
+
+.remove {
+  margin-top: 20px; }
+  .remove__dropdown {
+    width: 165px; }
+
+.save {
+  margin-top: 50px;
+  font-size: 16px; }

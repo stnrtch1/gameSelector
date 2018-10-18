@@ -1,0 +1,7 @@
+{
+  "esversion": 6,
+  "strict":"implied",
+  "browser":true,
+  "devel":true,
+  "globals":{}
+}

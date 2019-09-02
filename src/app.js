@@ -1,8 +1,14 @@
+/*
+    Changes made for not using Babel
+    --Declared the cookieManagerObject to be equal to the object declared in the CookieManager file
+    --Removed inializing the CookieManager Class in main()
+*/
+
 //import CookieManager from CookieManager file
-import {CookieManager} from "./CookieManager";
+import {cookieManager} from "./CookieManager";
 
 //CookieManager object
-let cookieManager = null;
+let cookieManagerObject = cookieManager;
 
 //Game Array object
 let gameArchive = [];
@@ -106,7 +112,7 @@ function onDelete(e){
 function saveData(){
     //to efficiently save the data, it will be put into JSON first
     jsonArray = JSON.stringify(gameArchive); 
-    cookieManager.setCookie("games", jsonArray, 365);
+    cookieManagerObject.setCookie("games", jsonArray, 365);
     console.log("Games Saved");
 }
 //--------------------------------------------------main function
@@ -115,15 +121,15 @@ function main() {
     lstGames = document.getElementById("lstGames");
 
     //contruct cookieManager
-    cookieManager = new CookieManager();
+    //cookieManagerObject = new CookieManager();
 
     //get existing data from cookie, if it exists
-    if (cookieManager.getCookie("games") === undefined){
+    if (cookieManagerObject.getCookie("games") === undefined){
         //if there is no cookie, it will create a new one
         saveData();
     } else {
         //if there is a cookie, then it reads the data
-        jsonArray = cookieManager.getCookie("games");
+        jsonArray = cookieManagerObject.getCookie("games");
         //turn the JSON file back into an array
         gameArchive = JSON.parse(jsonArray);
         

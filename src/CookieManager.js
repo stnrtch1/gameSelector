@@ -28,4 +28,12 @@ class CookieManager {
         return value;
     }  
 }
-export {CookieManager};
+
+let cookieManager = new CookieManager();
+
+export {cookieManager};
+
+/*
+    Changes made for not using Babel
+    -- Declared a new CookieManager object in this file
+*/

@@ -48,9 +48,18 @@ function populateDropdown(){
 }
 //--------------------------------------------------event handlers
 function checkInput(){
+    //the gameInput value
     let game = gameInput.value;
+    //get rid of all white space for value testing
+    let gameValue = game.replace(/^\s+/, '').replace(/\s+$/, '');
+    
 
-    console.log(game);
+    //if there is anything in the input field, enable the submit button
+    if (gameValue !== ""){
+        insertGame.disabled = false;
+    } else{
+        insertGame.disabled = true;
+    }
 }
 
 function onSubmit(e){
@@ -158,7 +167,7 @@ function main() {
     let gameList = document.querySelectorAll("[type=button]")[2];
     deleteGame = document.querySelectorAll("[type=button]")[3];
 
-    gameInput.addEventListener("change",checkInput);
+    gameInput.addEventListener("keyup",checkInput);
     insertGame.addEventListener("click",onSubmit);
     getGame.addEventListener("click",onGet);
     gameList.addEventListener("click", createList);

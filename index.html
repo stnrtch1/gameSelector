@@ -5,7 +5,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>The Game Selector</title>
-		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <script src="src/app.js" type="module"></script>
     </head>
     <body>
 
@@ -17,7 +18,7 @@
             <div class="input">
                 <div class="input__header">Enter the games you did not complete yet</div>
                 <input id="txtGame" type="text" class="input__textbox" />
-                <input type="button" value="Submit" class="button" />
+                <input disabled type="button" value="Submit" class="button" />
             </div>
             <div class="output">
                 <div class="output__selection"></div>
@@ -37,8 +38,6 @@
                 <div class="save__disclaimer">This app uses a cookie to save your list of games. Be careful clearing your cookies, or you may lose your list</div>
             </div>
         </div>
-
-        <script src="src/app.js" type="module"></script>
         
     </body>
 </html>

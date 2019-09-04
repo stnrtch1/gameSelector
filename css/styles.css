@@ -24,11 +24,15 @@ body {
   .main .button {
     border-radius: 10px;
     font-size: 14px;
-    background: #1100ff;
+    background-color: #1100ff;
     color: #ffffff;
     cursor: pointer;
     outline: none;
     border: none; }
+    .main .button:disabled {
+      background-color: #0b00a7;
+      color: #bbbbbb;
+      cursor: not-allowed; }
 
 .heading {
   display: -webkit-box;

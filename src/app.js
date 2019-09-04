@@ -22,6 +22,13 @@ let game;
 //Dropdown Object
 let lstGames;
 
+//input Object
+let gameInput;
+
+//insert/delete game buttons
+let insertGame;
+let deleteGame;
+
 //--------------------------------------------------private methods
 function populateDropdown(){
     //clear the dropdown before repopulating it
@@ -40,6 +47,12 @@ function populateDropdown(){
     }
 }
 //--------------------------------------------------event handlers
+function checkInput(){
+    let game = gameInput.value;
+
+    console.log(game);
+}
+
 function onSubmit(e){
     //console.log("Game Submit Works!");
     //when the user hits the submit button, the game is added to the array
@@ -139,11 +152,13 @@ function main() {
     populateDropdown();
 
     //setup event listeners
-    let insertGame = document.querySelectorAll("[type=button]")[0];
+    gameInput = document.querySelectorAll("[type=text]")[0];
+    insertGame = document.querySelectorAll("[type=button]")[0];
     let getGame = document.querySelectorAll("[type=button]")[1];
     let gameList = document.querySelectorAll("[type=button]")[2];
-    let deleteGame = document.querySelectorAll("[type=button]")[3];
+    deleteGame = document.querySelectorAll("[type=button]")[3];
 
+    gameInput.addEventListener("change",checkInput);
     insertGame.addEventListener("click",onSubmit);
     getGame.addEventListener("click",onGet);
     gameList.addEventListener("click", createList);

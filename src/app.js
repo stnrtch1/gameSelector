@@ -25,9 +25,11 @@ let lstGames;
 //input Object
 let gameInput;
 
-//insert/delete game buttons
-let insertGame;
+//various game buttons
+let submitGame;
+let selectGame;
 let deleteGame;
+
 
 //--------------------------------------------------private methods
 function populateDropdown(){
@@ -55,9 +57,9 @@ function checkInput(){
     
     //if there is anything in the input field, enable the submit button
     if (gameValue !== ""){
-        insertGame.disabled = false;
+        submitGame.disabled = false;
     } else{
-        insertGame.disabled = true;
+        submitGame.disabled = true;
     }
 }
 
@@ -86,7 +88,7 @@ function onSubmit(){
     
 }
 
-function onGet(){
+function onSelect(){
     //console.log("Game Get Works!");
     //if there are games in the list to pick, then the game picks one
     if (gameArchive.length != 0){
@@ -170,14 +172,14 @@ function main() {
 
     //setup event listeners
     gameInput = document.querySelectorAll("[type=text]")[0];
-    insertGame = document.querySelectorAll("[type=button]")[0];
-    let getGame = document.querySelectorAll("[type=button]")[1];
+    submitGame = document.querySelectorAll("[type=button]")[0];
+    selectGame = document.querySelectorAll("[type=button]")[1];
     let gameList = document.querySelectorAll("[type=button]")[2];
     deleteGame = document.querySelectorAll("[type=button]")[3];
 
     gameInput.addEventListener("keyup",checkInput);
-    insertGame.addEventListener("click",onSubmit);
-    getGame.addEventListener("click",onGet);
+    submitGame.addEventListener("click",onSubmit);
+    selectGame.addEventListener("click",onSelect);
     gameList.addEventListener("click", createList);
     deleteGame.addEventListener("click", onDelete);
 }

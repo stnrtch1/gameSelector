@@ -49,11 +49,10 @@ function populateDropdown(){
 //--------------------------------------------------event handlers
 function checkInput(){
     //the gameInput value
-    let game = gameInput.value;
+    game = gameInput.value;
     //get rid of all white space for value testing
     let gameValue = game.replace(/^\s+/, '').replace(/\s+$/, '');
     
-
     //if there is anything in the input field, enable the submit button
     if (gameValue !== ""){
         insertGame.disabled = false;
@@ -62,23 +61,32 @@ function checkInput(){
     }
 }
 
-function onSubmit(e){
+function onSubmit(){
     //console.log("Game Submit Works!");
     //when the user hits the submit button, the game is added to the array
-    game = document.getElementById("txtGame").value;
-    gameArchive.push(game);
+    game = gameInput.value;
 
-    //once the game is pushed in, the textbox should be cleared
-    document.getElementById("txtGame").value = "";
-    document.getElementById("txtGame").focus();
-    console.log(game + " Added");
+    //but first, check to see if there is anything in the game value
+    if (game != ""){
+        gameArchive.push(game);
 
-    populateDropdown();
-    //save the list once an item has been added
-    saveData();
+        //once the game is pushed in, the textbox and error message should be cleared
+        document.getElementsByClassName("input__error")[0].innerHTML = "";
+        gameInput.value = "";
+        gameInput.focus();
+        console.log(game + " Added");
+
+        populateDropdown();
+        //save the list once an item has been added
+        saveData();
+    } else{
+        document.getElementsByClassName("input__error")[0].innerHTML = "No Game Value Specified!";
+    }
+    
+    
 }
 
-function onGet(e){
+function onGet(){
     //console.log("Game Get Works!");
     //if there are games in the list to pick, then the game picks one
     if (gameArchive.length != 0){
@@ -95,7 +103,7 @@ function onGet(e){
     }
 }
 
-function createList(e){
+function createList(){
     //empty the list if there is a one already there
     document.getElementsByClassName("list__contents")[0].innerHTML = "";
 
@@ -114,7 +122,7 @@ function createList(e){
     }
 }
 
-function onDelete(e){
+function onDelete(){
     //first grab what is selected from the dropdown
     let selected = lstGames.value;
     console.log(selected + " has been selected");

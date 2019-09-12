@@ -51,6 +51,15 @@ function populateDropdown(){
 
         lstGames.add(option);
     }
+
+    //check if there are any games in the dropdown
+    if(tempArchive.length != 0){
+        //if there is any, make sure the button is enabled
+        deleteGame.disabled = false;
+    } else{
+        //if there isn't any games, then disable the button
+        deleteGame.disabled = true;
+    }
 }
 //--------------------------------------------------event handlers
 function checkInput(){
@@ -191,9 +200,6 @@ function main() {
         
     }
 
-    //after the data is loaded, populate the dropdown
-    populateDropdown();
-
     //setup event listeners
     gameInput = document.querySelectorAll("[type=text]")[0];
     submitGame = document.querySelectorAll("[type=button]")[0];
@@ -206,6 +212,9 @@ function main() {
     selectGame.addEventListener("click",onSelect);
     gameList.addEventListener("click", createList);
     deleteGame.addEventListener("click", onDelete);
+
+    //after the data is loaded, populate the dropdown
+    populateDropdown();
 }
 
 main();

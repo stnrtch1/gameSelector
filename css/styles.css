@@ -57,6 +57,9 @@ body {
 .output {
   margin-top: 25px; }
 
+.list__contents {
+  display: none; }
+
 .remove {
   margin-top: 20px; }
   .remove__dropdown {

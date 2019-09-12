@@ -85,7 +85,12 @@ body {
     margin-top: 25px;
 }
 
-//.list{}
+.list{
+    
+    &__contents{
+        display:none;
+    }
+}
 
 .remove{
     margin-top: 20px;

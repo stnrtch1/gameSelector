@@ -25,9 +25,13 @@ let lstGames;
 //input Object
 let gameInput;
 
+//list object
+let listOutput;
+
 //various game buttons
 let submitGame;
 let selectGame;
+let gameList;
 let deleteGame;
 
 
@@ -56,7 +60,7 @@ function checkInput(){
     let gameValue = game.replace(/^\s+/, '').replace(/\s+$/, '');
     
     //if there is anything in the input field, enable the submit button
-    if (gameValue !== ""){
+    if (gameValue != ""){
         submitGame.disabled = false;
     } else{
         submitGame.disabled = true;
@@ -94,11 +98,14 @@ function onSelect(){
     if (gameArchive.length != 0){
         //when the user hits the get button, it randomly picks a game from the array and show it to the user
         let games = gameArchive.length;
-        console.log(games + " games in the array");
+        //console.log(games + " games in the array");
         //this will select a random number, based on how many games are in the array
         let randomGame = Math.floor(Math.random() * (games));
-        console.log(randomGame);
+        //console.log(randomGame);
+        //tell the user what game was selected
         document.getElementsByClassName("output__selection")[0].innerHTML = gameArchive[(randomGame)];
+        
+        selectGame.value = "Select Another Game";
     } else{
         //if not, then tell the user there are no games to pick
         document.getElementsByClassName("output__selection")[0].innerHTML = "No games are in your list...";
@@ -106,22 +113,37 @@ function onSelect(){
 }
 
 function createList(){
-    //empty the list if there is a one already there
-    document.getElementsByClassName("list__contents")[0].innerHTML = "";
+    //toggle the list output depending on what the show list button shows
+    if (gameList.value == "Show List"){
+        //show the list output
+        listOutput.style.display = "block";
 
-    if (gameArchive.length != 0){
-        //create the heading for the list
-        document.getElementsByClassName("list__heading")[0].innerHTML = "Games in your list";
-        //now for the contents of the list
-        let list =  document.getElementsByClassName("list__contents")[0];
-        let lineBreak = document.createElement("br"); 
-        for (let n=0;n<gameArchive.length;n++){
-            list.innerHTML += (n+1) + ". " + gameArchive[n];
-            list.appendChild(lineBreak);
+        if (gameArchive.length != 0){
+            //create the heading for the list
+            listOutput.innerHTML = "Games in your list: <br>";
+            //now for the contents of the list
+            let list =  document.getElementsByClassName("list__contents")[0];
+            let lineBreak = document.createElement("br"); 
+            for (let n=0;n<gameArchive.length;n++){
+                list.innerHTML += (n+1) + ". " + gameArchive[n];
+                list.appendChild(lineBreak);
+            }
+        } else {
+            listOutput.innerHTML = "There are no games in your list. All of them are completed! ...or you forgot to add some in";
         }
-    } else {
-        document.getElementsByClassName("list__contents")[0].innerHTML = "There are no games in your list. All of them are completed! ...or you forgot to add some in";
+
+        //change the button value
+        gameList.value = "Hide List";
+    } else{
+        //if the button says "hide list" then clear out the html and hide the div
+        //clear out the list html
+        listOutput.innerHTML = "";
+        listOutput.style.display = "none";
+        //change the button value
+        gameList.value = "Show List";
     }
+
+    
 }
 
 function onDelete(){
@@ -152,6 +174,8 @@ function main() {
     //reference to the dropdown
     lstGames = document.getElementById("lstGames");
 
+    //reference to the list output
+    listOutput = document.getElementsByClassName("list__contents")[0];
     //contruct cookieManager
     //cookieManagerObject = new CookieManager();
 
@@ -174,7 +198,7 @@ function main() {
     gameInput = document.querySelectorAll("[type=text]")[0];
     submitGame = document.querySelectorAll("[type=button]")[0];
     selectGame = document.querySelectorAll("[type=button]")[1];
-    let gameList = document.querySelectorAll("[type=button]")[2];
+    gameList = document.querySelectorAll("[type=button]")[2];
     deleteGame = document.querySelectorAll("[type=button]")[3];
 
     gameInput.addEventListener("keyup",checkInput);

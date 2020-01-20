@@ -5,7 +5,7 @@
 */
 
 //import CookieManager from CookieManager file
-import {cookieManager} from "./CookieManager";
+import {cookieManager} from "./CookieManager.js";
 
 //CookieManager object
 let cookieManagerObject = cookieManager;

@@ -32,6 +32,7 @@ let listOutput;
 let submitGame;
 let selectGame;
 let gameList;
+let randomList;
 let deleteGame;
 
 
@@ -123,7 +124,7 @@ function onSelect(){
 
 function createList(){
     //toggle the list output depending on what the show list button shows
-    if (gameList.value == "Show List"){
+    if (gameList.value == "Show Games List"){
         //show the list output
         listOutput.style.display = "block";
 
@@ -142,14 +143,14 @@ function createList(){
         }
 
         //change the button value
-        gameList.value = "Hide List";
+        gameList.value = "Hide Games List";
     } else{
         //if the button says "hide list" then clear out the html and hide the div
         //clear out the list html
         listOutput.innerHTML = "";
         listOutput.style.display = "none";
         //change the button value
-        gameList.value = "Show List";
+        gameList.value = "Show Games List";
     }
 
     
@@ -205,7 +206,7 @@ function main() {
     submitGame = document.querySelectorAll("[type=button]")[0];
     selectGame = document.querySelectorAll("[type=button]")[1];
     gameList = document.querySelectorAll("[type=button]")[2];
-    deleteGame = document.querySelectorAll("[type=button]")[3];
+    deleteGame = document.querySelectorAll("[type=button]")[4];
 
     gameInput.addEventListener("keyup",checkInput);
     submitGame.addEventListener("click",onSubmit);

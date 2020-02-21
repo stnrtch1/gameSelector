@@ -57,7 +57,7 @@ body {
 .output {
   margin-top: 25px; }
 
-.list__contents {
+.list__contents, .random__contents {
   display: none; }
 
 .remove {

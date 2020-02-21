@@ -183,6 +183,32 @@ function createRandomList(){
         numGames = games;
     }
 
+    //create two arrays, one will be a copy of the games array, while the other array will be used for creating the random list
+    let copyArchive = Array.from(gameArchive);
+    let randomArray = [];
+
+    //create a value to be edited in the loop, it will be set to be the same as the number of games
+    let arrayNum = games;
+
+    //now, set up a for loop using the number of games selected
+    for(let i=1;i<=numGames;i++){
+
+        //for each loop around, pick a random number in the array
+        let randomGame = Math.floor(Math.random() * (arrayNum));
+        //select the game from the array
+        let selectedGame = copyArchive[randomGame];
+        //put the game into the random array
+        randomArray.push(selectedGame);
+        //now remove the selected game from the copyArchive
+        copyArchive.splice(randomGame,1);
+
+        //lower the arrayNumber by 1 now
+        arrayNum--;
+
+    }
+
+    console.log(randomArray);
+
 
 }
 

@@ -209,6 +209,13 @@ function createRandomList(){
 
     console.log(randomArray);
 
+    //now to create the html to show to the user
+    randomOutput.innerHTML = "Here's your random list: <br>";
+    let lineBreak = document.createElement("br");
+    for (let n=0;n<randomArray.length;n++){
+        randomOutput.innerHTML += "- " + randomArray[n];
+        randomOutput.appendChild(lineBreak);
+    }
 
 }
 

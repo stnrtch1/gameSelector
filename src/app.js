@@ -22,17 +22,20 @@ let game;
 //Dropdown Object
 let lstGames;
 
-//input Object
+//input Objects
 let gameInput;
+let numberInput;
 
-//list object
+//list/page objects
 let listOutput;
+let randomHTML;
+let randomOutput;
 
 //various game buttons
 let submitGame;
 let selectGame;
 let gameList;
-let randomList;
+let btnToggleRandom;
 let deleteGame;
 
 
@@ -156,6 +159,17 @@ function createList(){
     
 }
 
+function toggleRandom(){
+    //toggle the field
+    if (btnToggleRandom.value == "Create Random List"){
+        btnToggleRandom.value = "Hide Random List";
+        randomHTML.style.display = "block";
+    } else if (btnToggleRandom.value == "Hide Random List") {
+        btnToggleRandom.value = "Create Random List";
+        randomHTML.style.display = "none";
+    }
+}
+
 function onDelete(){
     //first grab what is selected from the dropdown
     let selected = lstGames.value;
@@ -184,8 +198,12 @@ function main() {
     //reference to the dropdown
     lstGames = document.getElementById("lstGames");
 
-    //reference to the list output
+    //reference to the page outputs
     listOutput = document.getElementsByClassName("list__contents")[0];
+    randomHTML = document.getElementsByClassName("random__contents")[0];
+    randomOutput = document.getElementsByClassName("random__list")[0];
+
+    
     //contruct cookieManager
     //cookieManagerObject = new CookieManager();
 
@@ -206,12 +224,15 @@ function main() {
     submitGame = document.querySelectorAll("[type=button]")[0];
     selectGame = document.querySelectorAll("[type=button]")[1];
     gameList = document.querySelectorAll("[type=button]")[2];
+    btnToggleRandom = document.querySelectorAll("[type=button]")[3];
+    numberInput = document.querySelectorAll("[type=number]")[0];
     deleteGame = document.querySelectorAll("[type=button]")[4];
 
     gameInput.addEventListener("keyup",checkInput);
     submitGame.addEventListener("click",onSubmit);
     selectGame.addEventListener("click",onSelect);
     gameList.addEventListener("click", createList);
+    btnToggleRandom.addEventListener("click", toggleRandom);
     deleteGame.addEventListener("click", onDelete);
 
     //after the data is loaded, populate the dropdown

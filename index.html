@@ -31,7 +31,12 @@
             </div>
             <div class="random">
                 <input type="button" value="Create Random List" class="button" />
-                <div class="random__contents"></div>
+                <div class="random__contents">
+                    Input the number of games you want to use for the random list. If you want to use all the games, leave it at 0.
+                    <input id="numGames" value="0" min="0" type="number">
+                    <input type="button" value="Create List" class="button" />
+                    <div class="random__list"></div>
+                </div>
             </div>
             <div class="remove">
                 <div class="remove__heading">Select the game you want to remove from the list</div>

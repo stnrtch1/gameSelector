@@ -36,6 +36,7 @@ let submitGame;
 let selectGame;
 let gameList;
 let btnToggleRandom;
+let randomList;
 let deleteGame;
 
 
@@ -170,6 +171,21 @@ function toggleRandom(){
     }
 }
 
+function createRandomList(){
+    //get the value from the input field
+    let numGames = numberInput.value;
+    console.log("Games Wanted : " + numGames);
+
+    //if the user set the value 0 or too high, set the value to the number of games
+    let games = gameArchive.length;
+    if ((numGames == 0) || (numGames > games)){
+        console.log("Using all games for the list");
+        numGames = games;
+    }
+
+
+}
+
 function onDelete(){
     //first grab what is selected from the dropdown
     let selected = lstGames.value;
@@ -226,13 +242,15 @@ function main() {
     gameList = document.querySelectorAll("[type=button]")[2];
     btnToggleRandom = document.querySelectorAll("[type=button]")[3];
     numberInput = document.querySelectorAll("[type=number]")[0];
-    deleteGame = document.querySelectorAll("[type=button]")[4];
+    randomList = document.querySelectorAll("[type=button]")[4];
+    deleteGame = document.querySelectorAll("[type=button]")[5];
 
     gameInput.addEventListener("keyup",checkInput);
     submitGame.addEventListener("click",onSubmit);
     selectGame.addEventListener("click",onSelect);
     gameList.addEventListener("click", createList);
     btnToggleRandom.addEventListener("click", toggleRandom);
+    randomList.addEventListener("click", createRandomList);
     deleteGame.addEventListener("click", onDelete);
 
     //after the data is loaded, populate the dropdown

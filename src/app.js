@@ -177,7 +177,7 @@ function toggleRandom(){
 
 function createRandomList(){
     //get the value from the input field
-    let numGames = numberInput.value;
+    let numGames = Math.round(numberInput.value);
     console.log("Games Wanted : " + numGames);
 
     //if the user set the value 0 or too high, set the value to the number of games

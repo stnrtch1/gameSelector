@@ -31,6 +31,14 @@ body {
     font-size: 20px;
     color: #FFFFFF;
     background-color: #232323;
+
+    @media #{$large-phone}{
+        font-size: 18px;
+    }
+
+    @media #{$phone}{
+        font-size: 14px;
+    }
 }
 
 .main {
@@ -42,6 +50,7 @@ body {
     margin-left: 20px;
 
     .button{
+        margin-top: 5px;
         border-radius: 10px;
         font-size: 14px;
         background-color: #1100ff;
@@ -57,22 +66,48 @@ body {
         }
     }
 
+    @media #{$large-phone}{
+        margin-left: 10px;
+    }
+
+    @media #{$phone}{
+        margin-left: 5px;
+    }
+
     
 }
 
 
 
 .heading{
+    margin-top: 10px;
+
     @include display-flex();
     flex-flow: column nowrap;
     align-items: flex-start; 
 
     &__title{
         font-size: 36px;
+
+        @media #{$large-phone}{
+            font-size: 30px;
+        }
+
+        @media #{$phone}{
+            font-size: 24px;
+        }
     }
 
     &__subtitle{
         font-size: 24px;
+
+        @media #{$large-phone}{
+            font-size: 20px;
+        }
+
+        @media #{$phone}{
+            font-size: 14px;
+        }
     }
 }
 
@@ -93,7 +128,20 @@ body {
 .list,.random{
     
     &__contents{
+        margin-top: 5px;
         display:none;
+    }
+
+    &__text{
+        margin-top: 5px;
+
+        @media #{$tablet}{
+            font-size: 18px;
+        }
+
+        @media #{$large-phone}{
+            font-size: 14px;
+        }
     }
 }
 
@@ -109,4 +157,8 @@ body {
     margin-top: 50px;
 
     font-size: 16px;
+
+    @media #{$tablet}{
+        font-size: 14px; 
+    }
 }

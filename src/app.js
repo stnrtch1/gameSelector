@@ -67,7 +67,7 @@ function populateDropdown(){
         //if there isn't any games, then disable the appropriate buttons
         deleteGame.disabled = true;
         btnToggleRandom.disabled = true;
-        randomList.disable = true;
+        randomList.disabled = true;
     }
 }
 //--------------------------------------------------event handlers

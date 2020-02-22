@@ -59,11 +59,15 @@ function populateDropdown(){
 
     //check if there are any games in the dropdown
     if(tempArchive.length != 0){
-        //if there is any, make sure the button is enabled
+        //if there is any, make sure the appropriate buttons are enabled
         deleteGame.disabled = false;
+        btnToggleRandom.disabled = false;
+        randomList.disabled = false;
     } else{
-        //if there isn't any games, then disable the button
+        //if there isn't any games, then disable the appropriate buttons
         deleteGame.disabled = true;
+        btnToggleRandom.disabled = true;
+        randomList.disable = true;
     }
 }
 //--------------------------------------------------event handlers

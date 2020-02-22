@@ -13,6 +13,11 @@
     flex: $args; 
 }
 
+//sass variables
+$tablet: "screen and (max-width:768px)";
+$large-phone: "screen and (max-width:552px)";
+$phone: "screen and (max-width:320px)";
+
 html {
 	height:100%;
 	overflow-y: scroll;

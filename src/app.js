@@ -98,7 +98,6 @@ function onSubmit(){
         document.getElementsByClassName("input__error")[0].innerHTML = "";
         gameInput.value = "";
         gameInput.focus();
-        console.log(game + " Added");
 
         populateDropdown();
         //save the list once an item has been added
@@ -160,8 +159,6 @@ function createList(){
         //change the button value
         gameList.value = "Show Games List";
     }
-
-    
 }
 
 function toggleRandom(){
@@ -178,12 +175,10 @@ function toggleRandom(){
 function createRandomList(){
     //get the value from the input field
     let numGames = Math.round(numberInput.value);
-    console.log("Games Wanted : " + numGames);
 
     //if the user set the value 0 or too high, set the value to the number of games
     let games = gameArchive.length;
     if ((numGames == 0) || (numGames > games)){
-        console.log("Using all games for the list");
         numGames = games;
     }
 
@@ -211,8 +206,6 @@ function createRandomList(){
 
     }
 
-    console.log(randomArray);
-
     //now to create the html to show to the user
     randomOutput.innerHTML = "Here's your random list: <br>";
     let lineBreak = document.createElement("br");
@@ -220,13 +213,11 @@ function createRandomList(){
         randomOutput.innerHTML += "- " + randomArray[n];
         randomOutput.appendChild(lineBreak);
     }
-
 }
 
 function onDelete(){
     //first grab what is selected from the dropdown
     let selected = lstGames.value;
-    console.log(selected + " has been selected");
 
     //get the index of the selected game
     let index = gameArchive.indexOf(selected);
@@ -237,14 +228,12 @@ function onDelete(){
     saveData();
     populateDropdown();
     
-    
 }
 
 function saveData(){
     //to efficiently save the data, it will be put into JSON first
     jsonArray = JSON.stringify(gameArchive); 
     cookieManagerObject.setCookie("games", jsonArray, 365);
-    console.log("Games Saved");
 }
 //--------------------------------------------------main function
 function main() {
@@ -255,10 +244,6 @@ function main() {
     listOutput = document.getElementsByClassName("list__contents")[0];
     randomHTML = document.getElementsByClassName("random__contents")[0];
     randomOutput = document.getElementsByClassName("random__list")[0];
-
-    
-    //contruct cookieManager
-    //cookieManagerObject = new CookieManager();
 
     //get existing data from cookie, if it exists
     if (cookieManagerObject.getCookie("games") === undefined){

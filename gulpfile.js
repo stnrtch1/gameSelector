@@ -16,6 +16,6 @@ function compSass() {
     .pipe(gulp.dest('./css'));
 }
 
-exports.watch = () => {
+exports.default = () => {
     gulp.watch('./scss/**/*.scss', gulp.series(compSass));
 };

@@ -35,7 +35,10 @@ body {
     color: #ffffff;
     cursor: pointer;
     outline: none;
-    border: none; }
+    border: 2px solid transparent; }
+    .main .button:hover, .main .button:focus {
+      background-color: #0b00a7;
+      border: 2px solid #1100ff; }
     .main .button:disabled {
       background-color: #0b00a7;
       color: #bbbbbb;

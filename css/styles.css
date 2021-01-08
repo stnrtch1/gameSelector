@@ -36,7 +36,7 @@ body {
     cursor: pointer;
     outline: none;
     border: 2px solid transparent; }
-    .main .button:hover, .main .button:focus {
+    .main .button:hover:not([disabled]), .main .button:focus:not([disabled]) {
       background-color: #0b00a7;
       border: 2px solid #1100ff; }
     .main .button:disabled {
@@ -57,8 +57,16 @@ body {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  flex-flow: column nowrap;
-  align-items: flex-start; }
+  flex-flow: row wrap;
+  justify-content: space-between; }
+  .heading__group {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start; }
   .heading__title {
     font-size: 36px; }
     @media screen and (max-width: 552px) {
@@ -75,9 +83,40 @@ body {
     @media screen and (max-width: 320px) {
       .heading__subtitle {
         font-size: 14px; } }
+  .heading__ad {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: column nowrap;
+    align-self: center;
+    text-align: right;
+    margin-right: 20px;
+    font-style: italic; }
+    @media screen and (max-width: 703px) {
+      .heading__ad {
+        flex-flow: row nowrap;
+        text-align: left;
+        margin-top: 10px; } }
+    .heading__ad a {
+      padding-left: 5px;
+      text-decoration: none; }
+    .heading__ad a:link, .heading__ad a:visited {
+      color: #1100ff; }
+    .heading__ad a:hover, .heading__ad a:focus {
+      color: #0b00a7;
+      outline: none; }
+    .heading__ad a:active {
+      color: #ffffff; }
 
 .input {
   margin-top: 30px; }
+  .input__textbox {
+    border: 2px solid transparent; }
+    .input__textbox:focus {
+      outline: none;
+      border: 2px solid #0b00a7; }
   .input__error {
     font-size: 16px;
     margin-top: 10px;
@@ -102,7 +141,11 @@ body {
 .remove {
   margin-top: 20px; }
   .remove__dropdown {
-    width: 165px; }
+    width: 165px;
+    border: 2px solid transparent; }
+    .remove__dropdown:focus {
+      outline: none;
+      border: 2px solid #0b00a7; }
 
 .save {
   margin-top: 50px;

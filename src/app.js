@@ -39,6 +39,9 @@ let btnToggleRandom;
 let randomList;
 let deleteGame;
 
+//blank game list quotes
+let lstBlankGames = ["I'm sorry, but your games are located in another castle","You're here to kick butt and play games... and you're all out of games","Would you kindly add more games to your list?", "Games... games never change", "It's dangerous to go alone, add a game!", "Stop right there, criminal scum! You've violated the law and not added any games to your list","Hey! Look! Listen! Your list is empty!", "I used to be a gamer like you until I didn't have any games in my list", "Don't make a list a promise if you know you can't keep it"];
+
 
 //--------------------------------------------------private methods
 function populateDropdown(){
@@ -69,6 +72,14 @@ function populateDropdown(){
         btnToggleRandom.disabled = true;
         randomList.disabled = true;
     }
+}
+
+function blankListGenerator(){
+    let quotes = lstBlankGames.length;
+    let randomQuote = Math.floor(Math.random() * (quotes));
+
+    return lstBlankGames[randomQuote];
+
 }
 //--------------------------------------------------event handlers
 function checkInput(){
@@ -125,7 +136,7 @@ function onSelect(){
         selectGame.value = "Select Another Game";
     } else{
         //if not, then tell the user there are no games to pick
-        document.getElementsByClassName("output__selection")[0].innerHTML = "No games are in your list...";
+        document.getElementsByClassName("output__selection")[0].innerHTML = blankListGenerator();
     }
 }
 

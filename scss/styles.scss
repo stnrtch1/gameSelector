@@ -15,6 +15,7 @@
 
 //sass variables
 $tablet: "screen and (max-width:768px)";
+$ad-break: "screen and (max-width:703px)";
 $large-phone: "screen and (max-width:552px)";
 $phone: "screen and (max-width:320px)";
 
@@ -60,8 +61,11 @@ body {
         border: 2px solid transparent;
 
         &:hover, &:focus{
-            background-color: #0b00a7;
-            border: 2px solid #1100ff;
+            &:not([disabled]){
+                background-color: #0b00a7;
+                border: 2px solid #1100ff;
+            }
+            
         }
 
         &:disabled{
@@ -86,10 +90,16 @@ body {
 
 .heading{
     margin-top: 10px;
-
     @include display-flex();
-    flex-flow: column nowrap;
-    align-items: flex-start; 
+    flex-flow: row wrap;
+    justify-content: space-between;
+    
+
+    &__group{
+        @include display-flex();
+        flex-flow: column nowrap;
+        align-items: flex-start; 
+    }
 
     &__title{
         font-size: 36px;
@@ -114,10 +124,53 @@ body {
             font-size: 14px;
         }
     }
+
+    &__ad{
+        @include display-flex();
+        flex-flow: column nowrap;
+
+        align-self: center;
+        text-align: right;
+        margin-right: 20px;
+        font-style: italic;
+
+        @media #{$ad-break}{
+            flex-flow: row nowrap;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        a{
+            padding-left: 5px;
+            text-decoration: none;
+        }
+
+        a:link,a:visited{
+           color: #1100ff; 
+        }
+
+        a:hover,a:focus{
+           color: #0b00a7;
+           outline: none;
+        }
+
+        a:active{
+            color: #ffffff;
+        }
+    }
 }
 
 .input{
     margin-top: 30px;
+
+    &__textbox{
+        border: 2px solid transparent;
+
+        &:focus{
+            outline: none;
+            border: 2px solid #0b00a7;
+        }
+    }
 
     &__error{
         font-size: 16px;
@@ -155,6 +208,12 @@ body {
 
     &__dropdown{
         width: 165px;
+        border: 2px solid transparent;
+
+        &:focus{
+            outline: none;
+            border: 2px solid #0b00a7;
+        }
     }
 }
 

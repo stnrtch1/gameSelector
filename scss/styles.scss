@@ -15,7 +15,7 @@
 
 //sass variables
 $tablet: "screen and (max-width:768px)";
-$ad-break: "screen and (max-width:703px)";
+$ad-break: "screen and (max-width:710px)";
 $large-phone: "screen and (max-width:552px)";
 $phone: "screen and (max-width:320px)";
 
@@ -199,6 +199,15 @@ body {
 
         @media #{$large-phone}{
             font-size: 14px;
+        }
+    }
+
+    input[type=number]{
+        border: 2px solid transparent;
+
+        &:focus{
+            outline: none;
+            border: 2px solid #0b00a7;
         }
     }
 }

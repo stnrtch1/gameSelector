@@ -94,7 +94,7 @@ body {
     text-align: right;
     margin-right: 20px;
     font-style: italic; }
-    @media screen and (max-width: 703px) {
+    @media screen and (max-width: 710px) {
       .heading__ad {
         flex-flow: row nowrap;
         text-align: left;
@@ -137,6 +137,12 @@ body {
   @media screen and (max-width: 552px) {
     .list__text, .random__text {
       font-size: 14px; } }
+
+.list input[type=number], .random input[type=number] {
+  border: 2px solid transparent; }
+  .list input[type=number]:focus, .random input[type=number]:focus {
+    outline: none;
+    border: 2px solid #0b00a7; }
 
 .remove {
   margin-top: 20px; }
